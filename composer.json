@@ -1,0 +1,21 @@
+{
+    "name": "peopleapps-dev/ticketasa-visa-omnipay-package",
+    "description": "Ticketasa support for omnipay payment processing library",
+    "type": "library",
+    "require": {
+        "php": "^7.2",
+        "omnipay/common": "^3"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Omnipay\\Ticketasavisa\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "PEOPLE APPS"
+        }
+    ],
+    "minimum-stability": "dev"
+}
