@@ -12,7 +12,7 @@ PHP 5.3+. This package implements TicketAsaGT 2.4 support for Omnipay.
 Via Composer
 
 ``` bash
-$ composer require danbart/omnipay-ticketasavisa
+$ composer require peopleapps-dev/ticketasa-visa-omnipay-package
 ```
 
 ## Gateway Operation Defaults
@@ -129,91 +129,83 @@ try {
 ***Visa Cybersource response***
 Response fetch transaction from powerTranz.
 
-```php
+```json
 {
-  "code": "200",
-  "message": "OK",
-  "data": {
-    "id": "6696797642706350904957",
-    "rootId": "6696797642706350904957",
-    "reconciliationId": "6696797642706350904957",
-    "submitTimeUTC": "2022-11-28T23:56:04Z",
-    "merchantId": "ticketasa",
-    "applicationInformation": {
-      "reasonCode": 100,
-      "applications": [
-        {
-          "name": "ics_auth",
-          "reasonCode": "100",
-          "rCode": "1",
-          "rFlag": "SOK",
-          "reconciliationId": "6696797642706350904957",
-          "rMessage": "Request was processed successfully.",
-          "returnCode": 1010000
-        }
-      ]
-    },
-    "clientReferenceInformation": {
-      "code": "f780fd1b-30c6-47f6-aab0-a796161c7bde",
-      "applicationName": "REST API",
-      "applicationVersion": "1.0"
-    },
-    "orderInformation": {
-      "amountDetails": {
-        "totalAmount": "1",
-        "currency": "GTQ",
-        "taxAmount": "0",
-        "authorizedAmount": "1"
+   "success":true,
+   "message":"OK",
+   "statusCode":200,
+   "data":{
+      "id":"6814001314506170404951",
+      "rootId":"6814001314506170404951",
+      "reconciliationId":"6814001314506170404951",
+      "merchantId":"visanetgt_ticketasa",
+      "submitTimeUTC":"2023-04-13T15:35:31Z",
+      "applicationInformation":{
+         "status":"PENDING",
+         "reasonCode":"100",
+         "applications":[
+            {
+               "name":"ics_auth",
+               "reasonCode":"100",
+               "rCode":"1",
+               "rFlag":"SOK",
+               "reconciliationId":"6814001314506170404951",
+               "rMessage":"Request was processed successfully.",
+               "returnCode":1010000
+            }
+         ]
       },
-      "lineItems": [
-        {
-          "productCode": "default",
-          "taxAmount": 0,
-          "quantity": 1,
-          "unitPrice": 1
-        }
-      ]
-    },
-    "paymentInformation": {
-      "paymentType": {
-        "name": "vguatemala",
-        "type": "credit card",
-        "method": "VI"
+      "orderInformation":{
+         "amountDetails":{
+            "totalAmount":"1",
+            "currency":"GTQ",
+            "taxAmount":"0",
+            "authorizedAmount":"1"
+         }
       },
-      "card": {
-        "suffix": "3495",
-        "prefix": "491681",
-        "expirationMonth": "02",
-        "expirationYear": "2026",
-        "type": "001"
+      "paymentInformation":{
+         "paymentType":{
+            "name":"vdcguatemala",
+            "type":"credit card",
+            "method":"VI"
+         },
+         "card":{
+            "suffix":"1005",
+            "prefix":"445653",
+            "expirationMonth":"12",
+            "expirationYear":"2031",
+            "type":"001"
+         }
       },
-    },
-    "processingInformation": {
-      "paymentSolution": "Visa",
-      "commerceIndicator": "7",
-      "commerceIndicatorLabel": "internet",
+      "processingInformation":{
+         "paymentSolution":"Visa",
+         "commerceIndicator":"5",
+         "commerceIndicatorLabel":"vbv"
       },
-      "fundingOptions": {
-        "firstRecurringPayment": false
+      "processorInformation":{
+         "processor":{
+            "name":"vdcguatemala"
+         },
+         "networkTransactionId":"016153570198200",
+         "retrievalReferenceNumber":"310315180334",
+         "approvalCode":"831000",
+         "responseCode":"00"
       },
-      "ecommerceIndicator": "7"
-    },
-    "riskInformation": {
-      "profile": {
-        "name": "Perfil de Pruebas CVV2",
-        "decision": "ACCEPT"
-      },
-      "score": {
-        "factorCodes": [
-          "C",
-          "H",
-          "P",
-          "F"
-        ],
-        "result": 48
+      "riskInformation":{
+         "profile":{
+            "name":"Perfil de Pruebas CVV2",
+            "decision":"ACCEPT"
+         },
+         "score":{
+            "factorCodes":[
+               "V",
+               "H",
+               "F"
+            ],
+            "result":91
+         }
       }
-    }
-  }
+   }
 }
 ```
 
@@ -257,28 +249,24 @@ try {
 ***Visa Cybersource response***
 Response refund Transaction from powerTranz.
 
-```php
+```json
 {
-  "code": "200",
-  "message": "OK",
-  "data": {
-    "clientReferenceInformation": {
-      "code": "f780fd1b-30c6-47f6-aab0-a796161c7bde"
-    },
-    "id": "6697696378546596504952",
-    "orderInformation": {
-      "amountDetails": {
-        "currency": "GTQ"
+   "success":true,
+   "message":"OK",
+   "statusCode":201,
+   "data":{
+      "id":"6814069291496607104953",
+      "submitTimeUtc":"2023-04-13T17:28:49Z",
+      "status":"PENDING",
+      "reconciliationId":"6814004474776245104951",
+      "clientReferenceInformation":{
+         "code":"68ef8f5d-f3d9-4ed2-98a6-a12f57dfa27f"
+      },
+      "refundAmountDetails":{
+         "refundAmount":"1.00",
+         "currency":"GTQ"
       }
-    },
-    "reconciliationId": "6694214339196447904951",
-    "refundAmountDetails": {
-      "currency": "GTQ",
-      "refundAmount": "1.00"
-    },
-    "status": "PENDING",
-    "submitTimeUtc": "2022-11-30T00:53:58Z"
-  }
+   }
 }
 ```
 
