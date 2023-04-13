@@ -7,7 +7,7 @@ class TransactionStatusResponse extends AbstractResponse
 
     public function isSuccessful()
     {
-        if (!empty($this->getData()["code"] == "400") && !empty($this->getData()["code"] == "404")) {
+        if (!empty($this->getData()["statusCode"]) && $this->getData()["statusCode"] === 200) {
             return true;
         }
 

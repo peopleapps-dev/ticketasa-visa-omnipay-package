@@ -7,7 +7,7 @@ class RefundPaymentResponse extends AbstractResponse
 
     public function isSuccessful()
     {
-        if (!empty($this->getData()["code"] == "400") && !empty($this->getData()["code"] == "404")) {
+        if (!empty($this->getData()["statusCode"]) && $this->getData()["statusCode"] === 201) {
             return true;
         }
 
@@ -36,7 +36,7 @@ class RefundPaymentResponse extends AbstractResponse
 
     public function getStatus()
     {
-        return $this->getData()["data"]["status"];
+        return $this->getData()["data"]["statusCode"];
     }
 
     public function getResponseMessage()
