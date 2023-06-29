@@ -4,9 +4,8 @@ namespace Omnipay\Ticketasavisa;
 
 class Constants
 {
-
-    const API_STAGING                      = 'https://apitest.cybersource.com/';
-    const API_PRODUCTION                   = 'https://api.cybersource.com/';
+    const API_STAGING                      = 'https://cybersource-asa.mypeopleapps.com';
+    const API_PRODUCTION                   = 'https://cybersource.ticketasa.gt';
     const SPI_STAGING                      = '';
     const SPI_PRODUCTION                   = '';
     const DRIVER_NAME                      = "TicketAsaVisa - Payment Gateway";

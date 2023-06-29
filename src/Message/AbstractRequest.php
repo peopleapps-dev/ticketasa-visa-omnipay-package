@@ -95,14 +95,14 @@ implements ParametersInterface
 
     protected function getEndpoint()
     {
-        return ($this->getTestMode() ? Constants::PLATFORM_TA_UAT : Constants::PLATFORM_TA_PROD)
-            . '/fetchTransaction?data=' . $this->getEncript();
+        return ($this->getTestMode() ? Constants::API_STAGING : Constants::API_PRODUCTION)
+            . '/v1/transaction/payment/fetch?data=' . $this->getEncript();
     }
 
     protected function getEndpointRefaund()
     {
-        return ($this->getTestMode() ? Constants::PLATFORM_TA_UAT : Constants::PLATFORM_TA_PROD)
-            . '/refaundTransaction?data=' . $this->getEncript();
+        return ($this->getTestMode() ? Constants::API_STAGING : Constants::API_PRODUCTION)
+            . '/v1/transaction/payment/refund?data=' . $this->getEncript();
     }
 
 
